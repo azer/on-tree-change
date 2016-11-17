@@ -16,12 +16,8 @@ import (
   "os"
 )
 
-OnTreeChange("src/", filter, func (err error) {
-    if err != nil {
-        panic(err)
-    }
-
-  // foobar.txt has been updated
+OnTreeChange("src/", filter, func (filename string) {
+    fmt.Println(filename + " updated")
 })
 
 func filter (filename string, fileinfo os.FileInfo) bool {
